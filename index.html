@@ -53,6 +53,28 @@
       font-size: 1em;
     }
 
+    /* Estilo do botão de login */
+    .admin-login-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: linear-gradient(45deg, #4CAF50, #00bcd4);
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1em;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .admin-login-btn:hover {
+      background: linear-gradient(45deg, #45a049, #0097a7);
+      transform: scale(1.1);
+    }
+
     /* Login modal */
     .login-modal {
       position: fixed;
@@ -121,15 +143,17 @@
 
   <!-- Música de fundo -->
   <audio autoplay loop>
-    <source src="music.mp3" type="audio/mp3">
+    <source src="background-music.mp3" type="audio/mp3">
     Seu navegador não suporta áudio HTML5.
   </audio>
+
+  <!-- Botão de login no canto superior direito -->
+  <button class="admin-login-btn" onclick="openLogin()">Login de Admin</button>
 
   <!-- Conteúdo principal -->
   <div class="content">
     <h1>EDERTOAS REMAKE</h1>
     <p>Sua segurança contra Edersons, nossa prioridade.</p>
-    <button onclick="openLogin()">Login de Admin</button>
     <footer>&copy; 2024 EDERTOAS REMAKE - Todos os direitos reservados.</footer>
   </div>
 
