@@ -12,7 +12,6 @@
       overflow: hidden;
       font-family: Arial, sans-serif;
       color: #fff;
-      text-align: center;
     }
 
     /* Vídeo de fundo */
@@ -53,26 +52,124 @@
       bottom: 20px;
       font-size: 1em;
     }
+
+    /* Login modal */
+    .login-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 10;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0.2s, opacity 0.2s;
+    }
+
+    .login-modal.show {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .login-container {
+      background: #333;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      width: 300px;
+    }
+
+    .login-container input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .login-container button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      background: #4CAF50;
+      color: white;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .login-container button:hover {
+      background: #45a049;
+    }
+
+    .error {
+      color: red;
+      font-size: 0.9em;
+    }
   </style>
 </head>
 <body>
   <!-- Vídeo de fundo -->
   <video class="background-video" autoplay loop muted>
-    <source src="images.mp4" type="video/mp4">
+    <source src="image.mp4" type="video/mp4">
     Seu navegador não suporta vídeos HTML5.
   </video>
 
   <!-- Música de fundo -->
-  <audio id="background-audio" autoplay>
-  <source src="music.mp3" type="audio/mp3">
-</audio>
+  <audio autoplay loop>
+    <source src="music.mp3" type="audio/mp3">
+    Seu navegador não suporta áudio HTML5.
+  </audio>
 
- 
   <!-- Conteúdo principal -->
   <div class="content">
     <h1>EDERTOAS REMAKE</h1>
     <p>Sua segurança contra Edersons, nossa prioridade.</p>
+    <button onclick="openLogin()">Login de Admin</button>
     <footer>&copy; 2024 EDERTOAS REMAKE - Todos os direitos reservados.</footer>
   </div>
+
+  <!-- Modal de Login -->
+  <div class="login-modal" id="loginModal">
+    <div class="login-container">
+      <h2>Login de Administrador</h2>
+      <input type="text" id="username" placeholder="Usuário">
+      <input type="password" id="password" placeholder="Senha">
+      <button onclick="login()">Entrar</button>
+      <p class="error" id="error-msg"></p>
+    </div>
+  </div>
+
+  <script>
+    // Abrir o modal de login
+    function openLogin() {
+      document.getElementById('loginModal').classList.add('show');
+    }
+
+    // Fechar o modal de login (opcional, se necessário)
+    function closeLogin() {
+      document.getElementById('loginModal').classList.remove('show');
+    }
+
+    // Função de login
+    function login() {
+      const adminUser = "admin"; // Usuário fictício
+      const adminPass = "1234"; // Senha fictícia
+
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      if (username === adminUser && password === adminPass) {
+        alert("Login bem-sucedido! Bem-vindo ao painel de administração.");
+        window.location.href = "admin-panel.html"; // Redireciona para o painel de admin
+      } else {
+        document.getElementById('error-msg').innerText = "Usuário ou senha incorretos.";
+      }
+    }
+  </script>
 </body>
 </html>
