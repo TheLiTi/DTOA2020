@@ -9,16 +9,10 @@
       margin: 0;
       padding: 0;
       height: 100%;
+      overflow: hidden;
       font-family: Arial, sans-serif;
       color: #fff;
     }
-    
-    <!-- Conteúdo principal -->
-  <div class="content">
-    <h1>EDERTOAS REMAKE</h1>
-    <p>Sua segurança contra Edersons, nossa prioridade.</p>
-    <footer>&copy; 2024 EDERTOAS REMAKE - Todos os direitos reservados.</footer>
-  </div>
 
     /* Vídeo de fundo */
     .background-video {
@@ -31,29 +25,35 @@
       z-index: -1;
     }
 
-    /* Botão de login */
-    .admin-login-btn {
+    /* Conteúdo sobre o vídeo */
+    .content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5); /* Transparência para maior legibilidade */
+    }
+
+    h1 {
+      font-size: 3em;
+      margin: 20px;
+    }
+
+    p {
+      font-size: 1.5em;
+      margin: 10px;
+    }
+
+    footer {
       position: absolute;
-      top: 20px;
-      right: 20px;
-      background: linear-gradient(45deg, #4CAF50, #00bcd4);
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 30px;
+      bottom: 20px;
       font-size: 1em;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease;
     }
 
-    .admin-login-btn:hover {
-      background: linear-gradient(45deg, #45a049, #0097a7);
-      transform: scale(1.1);
-    }
-
-    /* Modal de login */
+    /* Login modal */
     .login-modal {
       position: fixed;
       top: 0;
@@ -106,30 +106,36 @@
       background: #45a049;
     }
 
-    .close-modal {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      color: #fff;
-      font-size: 20px;
-      cursor: pointer;
+    .error {
+      color: red;
+      font-size: 0.9em;
     }
   </style>
 </head>
 <body>
   <!-- Vídeo de fundo -->
   <video class="background-video" autoplay loop muted>
-    <source src="images.mp4" type="video/mp4">
+    <source src="image.mp4" type="video/mp4">
     Seu navegador não suporta vídeos HTML5.
   </video>
 
-  <!-- Botão de login -->
-  <button class="admin-login-btn" onclick="openLogin()">Login de Admin</button>
+  <!-- Música de fundo -->
+  <audio autoplay loop>
+    <source src="music.mp3" type="audio/mp3">
+    Seu navegador não suporta áudio HTML5.
+  </audio>
+
+  <!-- Conteúdo principal -->
+  <div class="content">
+    <h1>EDERTOAS REMAKE</h1>
+    <p>Sua segurança contra Edersons, nossa prioridade.</p>
+    <button onclick="openLogin()">Login de Admin</button>
+    <footer>&copy; 2024 EDERTOAS REMAKE - Todos os direitos reservados.</footer>
+  </div>
 
   <!-- Modal de Login -->
   <div class="login-modal" id="loginModal">
     <div class="login-container">
-      <span class="close-modal" onclick="closeLogin()">&#x2715;</span>
       <h2>Login de Administrador</h2>
       <input type="text" id="username" placeholder="Usuário">
       <input type="password" id="password" placeholder="Senha">
@@ -139,21 +145,17 @@
   </div>
 
   <script>
-    // Função para abrir o modal de login
+    // Abrir o modal de login
     function openLogin() {
-      console.log("Abrindo modal..."); // Para diagnóstico
-      const modal = document.getElementById('loginModal');
-      modal.classList.add('show');
+      document.getElementById('loginModal').classList.add('show');
     }
 
-    // Função para fechar o modal de login
+    // Fechar o modal de login (opcional, se necessário)
     function closeLogin() {
-      console.log("Fechando modal..."); // Para diagnóstico
-      const modal = document.getElementById('loginModal');
-      modal.classList.remove('show');
+      document.getElementById('loginModal').classList.remove('show');
     }
 
-    // Função de login (fictícia)
+    // Função de login
     function login() {
       const adminUser = "admin"; // Usuário fictício
       const adminPass = "1234"; // Senha fictícia
@@ -170,4 +172,4 @@
     }
   </script>
 </body>
-</html>
+  </html>
