@@ -53,7 +53,7 @@
       font-size: 1em;
     }
 
-    /* Estilo do botão de login */
+    /* Botão de login */
     .admin-login-btn {
       position: absolute;
       top: 20px;
@@ -75,7 +75,7 @@
       transform: scale(1.1);
     }
 
-    /* Login modal */
+    /* Modal de login */
     .login-modal {
       position: fixed;
       top: 0;
@@ -137,17 +137,11 @@
 <body>
   <!-- Vídeo de fundo -->
   <video class="background-video" autoplay loop muted>
-    <source src="images.mp4" type="video/mp4">
+    <source src="background.mp4" type="video/mp4">
     Seu navegador não suporta vídeos HTML5.
   </video>
 
-  <!-- Música de fundo -->
-  <audio autoplay loop>
-    <source src="background-music.mp3" type="audio/mp3">
-    Seu navegador não suporta áudio HTML5.
-  </audio>
-
-  <!-- Botão de login no canto superior direito -->
+  <!-- Botão de login -->
   <button class="admin-login-btn" onclick="openLogin()">Login de Admin</button>
 
   <!-- Conteúdo principal -->
@@ -169,17 +163,13 @@
   </div>
 
   <script>
-    // Abrir o modal de login
+    // Função para abrir o modal de login
     function openLogin() {
-      document.getElementById('loginModal').classList.add('show');
+      const modal = document.getElementById('loginModal');
+      modal.classList.add('show');
     }
 
-    // Fechar o modal de login (opcional, se necessário)
-    function closeLogin() {
-      document.getElementById('loginModal').classList.remove('show');
-    }
-
-    // Função de login
+    // Função de login (fictícia)
     function login() {
       const adminUser = "admin"; // Usuário fictício
       const adminPass = "1234"; // Senha fictícia
