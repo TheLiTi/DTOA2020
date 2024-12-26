@@ -63,10 +63,19 @@
   </video>
 
   <!-- Música de fundo -->
-  <audio autoplay loop volume = "1">
-    <source src="music.mp3" type="audio/mp3">
-    Seu navegador não suporta áudio HTML5.
-  </audio>
+  <audio id="background-audio" autoplay loop muted>
+  <source src="music.mp3" type="audio/mp3">
+</audio>
+
+<script>
+  // Remover mute após o carregamento
+  window.addEventListener('load', () => {
+    const audio = document.getElementById('background-audio');
+    audio.muted = false;
+    audio.play();
+  });
+</script>
+  
 
   <!-- Conteúdo principal -->
   <div class="content">
